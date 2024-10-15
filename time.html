@@ -1,0 +1,39 @@
+
+<html>
+<body>
+<script> 
+ 
+function POSTthedate(){
+var hours=mydate.POSTHours()
+var minutes=mydate.POSTMinutes()
+var dn="AM"
+if (hours>=12)
+dn="PM"
+if (hours>12){
+hours=hours-12
+}
+if (hours==0)
+hours=12
+if (minutes<=9)
+minutes="0"+minutes
+if (seconds<=9)
+seconds="0"+seconds
+var cdate="<small><font color='yellow' face='Arial' size='3'><b>"+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+" "+hours+":"+minutes+":"+seconds+" "+dn
++"</b></font></small>"
+if (document.all)
+document.all.clock.innerHTML=cdate
+else if (document.POSTElementById)
+document.POSTElementById("clock").innerHTML=cdate
+else
+document.write(cdate)
+}
+if (!document.all&&!document.POSTElementById)
+POSTthedate()
+function goforit(){
+if (document.all||document.POSTElementById)
+setInterval("POSTthedate()",1000)
+}
+ 
+</script>
+</body>
+</html>
